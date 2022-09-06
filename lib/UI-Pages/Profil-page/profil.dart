@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:mountainapps/UI-Pages/Book-page/list-book.dart';
 import 'package:mountainapps/UI-Pages/Homa-page/home.dart';
+import 'package:mountainapps/UI-Pages/Login-pages/loginpage.dart';
 import 'package:mountainapps/UI-Pages/Profil-page/edit-profil.dart';
 import 'package:mountainapps/components/card-name.dart';
 import 'package:mountainapps/components/field-name.dart';
@@ -59,7 +60,7 @@ class ProfilPage extends StatelessWidget {
               SizedBox(height: 24),
               CardName(TittleName: 'Nama', name: 'Muh Akbar'),
               SizedBox(height: 24),
-              CardName(TittleName: 'Nama', name: 'Muh Akbar'),   
+              CardName(TittleName: 'Nama', name: 'Muh Akbar'),
               SizedBox(height: 35),
               InkWell(
                 onTap: (() {
@@ -92,20 +93,32 @@ class ProfilPage extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 18),
-              Container(
-                width: 292,
-                height: 50,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: Colors.red,
-                ),
-                child: Center(
-                  child: Text(
-                    'Log Out',
-                    style: GoogleFonts.poppins(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w700,
-                      color: Colors.white,
+              InkWell(
+                onTap: () {
+                  Navigator.pushReplacement(
+                    context,
+                    PageRouteBuilder(
+                      pageBuilder: (context, animation1, animation2) =>
+                          LoginPage(),
+                      transitionDuration: Duration(seconds: 0),
+                    ),
+                  );
+                },
+                child: Container(
+                  width: 292,
+                  height: 50,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.red,
+                  ),
+                  child: Center(
+                    child: Text(
+                      'Log Out',
+                      style: GoogleFonts.poppins(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w700,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                 ),
