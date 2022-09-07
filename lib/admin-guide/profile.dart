@@ -3,10 +3,14 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:mountainapps/UI-Pages/Book-page/list-book.dart';
 import 'package:mountainapps/UI-Pages/Homa-page/home.dart';
-import 'package:mountainapps/UI-Pages/Profil-page/profil.dart';
+import 'package:mountainapps/UI-Pages/Login-pages/loginpage.dart';
+import 'package:mountainapps/UI-Pages/Profil-page/edit-profil.dart';
+import 'package:mountainapps/admin-guide/booking.dart';
+import 'package:mountainapps/admin-guide/edit-admin.dart';
+import 'package:mountainapps/components/card-name.dart';
 import 'package:mountainapps/components/field-name.dart';
 
-class EditProfil extends StatelessWidget {
+class ProfilAdmin extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,7 +32,7 @@ class EditProfil extends StatelessWidget {
                           context,
                           PageRouteBuilder(
                             pageBuilder: (context, animation1, animation2) =>
-                                ProfilPage(),
+                                adminBook(),
                             transitionDuration: Duration(seconds: 0),
                           ),
                         );
@@ -37,7 +41,7 @@ class EditProfil extends StatelessWidget {
                       color: Colors.black,
                     ),
                     Text(
-                      'Edit Profile',
+                      'My Profile',
                       style: GoogleFonts.poppins(
                         fontSize: 18,
                         fontWeight: FontWeight.w600,
@@ -47,77 +51,88 @@ class EditProfil extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 30),
-              Stack(
-                children: [
-                  Image.asset(
-                    'assets/images/avatar.png',
-                    width: 120,
-                  ),
-                  Positioned.fill(
-                    child: Align(
-                      alignment: Alignment.bottomRight,
-                      child: Image.asset(
-                        'assets/images/add_vector.png',
-                        width: 40,
-                      ),
-                    ),
-                  )
-                ],
+              Image.asset(
+                'assets/images/avatar.png',
+                width: 120,
               ),
               SizedBox(height: 48),
-              FieldName(
-                TittleName: 'Nama',
-                name: 'Muh Akbar',
-              ),
+              CardName(TittleName: 'Nama', name: 'Muh Akbar'),
               SizedBox(height: 24),
-              FieldName(
-                TittleName: 'Alamat',
-                name: 'Samata',
-              ),
+              CardName(TittleName: 'Alamat', name: 'Muh Akbar'),
               SizedBox(height: 24),
-              FieldName(
-                TittleName: 'Nomor Telp',
-                name: '0899675434',
-              ),
+              CardName(TittleName: 'Nomor Telp', name: 'Muh Akbar'),
               SizedBox(height: 24),
-              FieldName(
-                TittleName: 'Email',
-                name: 'mabar676@gmail.com',
-              ),
+              CardName(TittleName: 'Email', name: 'Muh Akbar'),
               SizedBox(height: 35),
-              Container(
-                width: 292,
-                height: 50,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: Color(0xffFFB173),
-                ),
-                child: Center(
-                  child: Text(
-                    'Save',
-                    style: GoogleFonts.poppins(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w700,
-                      color: Colors.white,
+              InkWell(
+                onTap: (() {
+                  Navigator.pushReplacement(
+                    context,
+                    PageRouteBuilder(
+                      pageBuilder: (context, animation1, animation2) =>
+                          EditProfil(),
+                      transitionDuration: Duration(seconds: 0),
+                    ),
+                  );
+                }),
+                child: InkWell(
+                  onTap: () {
+                    Navigator.pushReplacement(
+                      context,
+                      PageRouteBuilder(
+                        pageBuilder: (context, animation1, animation2) =>
+                            editAdmin(),
+                        transitionDuration: Duration(seconds: 0),
+                      ),
+                    );
+                  },
+                  child: Container(
+                    width: 292,
+                    height: 50,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Color(0xffFFB173),
+                    ),
+                    child: Center(
+                      child: Text(
+                        'Edit Profile',
+                        style: GoogleFonts.poppins(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w700,
+                          color: Colors.white,
+                        ),
+                      ),
                     ),
                   ),
                 ),
               ),
               SizedBox(height: 18),
-              Container(
-                width: 292,
-                height: 50,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: Colors.red,
-                ),
-                child: Center(
-                  child: Text(
-                    'Delete',
-                    style: GoogleFonts.poppins(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w700,
-                      color: Colors.white,
+              InkWell(
+                onTap: () {
+                  Navigator.pushReplacement(
+                    context,
+                    PageRouteBuilder(
+                      pageBuilder: (context, animation1, animation2) =>
+                          LoginPage(),
+                      transitionDuration: Duration(seconds: 0),
+                    ),
+                  );
+                },
+                child: Container(
+                  width: 292,
+                  height: 50,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.red,
+                  ),
+                  child: Center(
+                    child: Text(
+                      'Log Out',
+                      style: GoogleFonts.poppins(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w700,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                 ),
@@ -142,7 +157,7 @@ class EditProfil extends StatelessWidget {
         unselectedItemColor: Color(0xFFCFCFCF),
         type: BottomNavigationBarType.fixed,
         backgroundColor: Colors.white,
-        currentIndex: 2,
+        currentIndex: 1,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Padding(
@@ -155,32 +170,8 @@ class EditProfil extends StatelessWidget {
                   Navigator.pushReplacement(
                     context,
                     PageRouteBuilder(
-                      pageBuilder: (context, animation1, animation2) => Home(),
-                      transitionDuration: Duration(seconds: 0),
-                    ),
-                  );
-                },
-                child: Image.asset(
-                  'assets/images/nav_home.png',
-                  width: 18.0,
-                ),
-              ),
-            ),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Padding(
-              padding: const EdgeInsets.only(
-                top: 18.0,
-                bottom: 8,
-              ),
-              child: InkWell(
-                onTap: () {
-                  Navigator.pushReplacement(
-                    context,
-                    PageRouteBuilder(
                       pageBuilder: (context, animation1, animation2) =>
-                          ListBook(),
+                          adminBook(),
                       transitionDuration: Duration(seconds: 0),
                     ),
                   );
@@ -189,8 +180,8 @@ class EditProfil extends StatelessWidget {
                   'assets/images/nav_book.png',
                   width: 20,
                 ),
-                // ),
               ),
+              // ),
             ),
             label: 'List Book',
           ),
@@ -202,7 +193,7 @@ class EditProfil extends StatelessWidget {
               ),
               child: Image.asset(
                 'assets/images/nav_profile_on.png',
-                width: 25,
+                width: 20,
               ),
             ),
             label: 'Profil',

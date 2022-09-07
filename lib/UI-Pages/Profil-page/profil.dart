@@ -56,11 +56,11 @@ class ProfilPage extends StatelessWidget {
               SizedBox(height: 48),
               CardName(TittleName: 'Nama', name: 'Muh Akbar'),
               SizedBox(height: 24),
-              CardName(TittleName: 'Nama', name: 'Muh Akbar'),
+              CardName(TittleName: 'Alamat', name: 'Muh Akbar'),
               SizedBox(height: 24),
-              CardName(TittleName: 'Nama', name: 'Muh Akbar'),
+              CardName(TittleName: 'Nomor Telp', name: 'Muh Akbar'),
               SizedBox(height: 24),
-              CardName(TittleName: 'Nama', name: 'Muh Akbar'),
+              CardName(TittleName: 'Email', name: 'Muh Akbar'),
               SizedBox(height: 35),
               InkWell(
                 onTap: (() {

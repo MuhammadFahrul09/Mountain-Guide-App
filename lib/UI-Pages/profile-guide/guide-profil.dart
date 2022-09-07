@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:mountainapps/UI-Pages/Detail-book/detail-book.dart';
+import 'package:mountainapps/components/card-name.dart';
 import 'package:mountainapps/widget/custom-widget.dart';
 
 class GuideProfile extends StatelessWidget {
@@ -50,7 +51,7 @@ class GuideProfile extends StatelessWidget {
                       children: [
                         Container(
                           child: Text(
-                            'Detail Book',
+                            'Tour Guide',
                             style: GoogleFonts.poppins(
                               color: Colors.black,
                               fontSize: 16,
@@ -109,6 +110,14 @@ class GuideProfile extends StatelessWidget {
                 ],
               ),
             ),
+            SizedBox(height: 30),
+            CardName(TittleName: 'Nama', name: 'Muh Akbar'),
+            SizedBox(height: 24),
+            CardName(TittleName: 'Alamat', name: 'Muh Akbar'),
+            SizedBox(height: 24),
+            CardName(TittleName: 'Nomor Telp', name: 'Muh Akbar'),
+            SizedBox(height: 24),
+            CardName(TittleName: 'Usia', name: 'Muh Akbar'),
           ],
         ),
       ),

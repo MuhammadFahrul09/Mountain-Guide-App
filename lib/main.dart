@@ -12,6 +12,8 @@ import 'package:mountainapps/UI-Pages/pick-tour-plan/tour-plan.dart';
 import 'package:mountainapps/UI-Pages/profile-guide/guide-profil.dart';
 
 import 'package:mountainapps/UI-Pages/splash-screen.dart';
+import 'package:mountainapps/admin-guide/booking.dart';
+import 'package:mountainapps/admin-guide/profile.dart';
 import 'package:mountainapps/components/card-name.dart';
 
 void main() async {
@@ -23,6 +25,6 @@ class MountainApps extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: GuideProfile());
+    return MaterialApp(debugShowCheckedModeBanner: false, home: ProfilAdmin());
   }
 }
